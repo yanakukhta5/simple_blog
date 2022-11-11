@@ -1,0 +1,11 @@
+{
+  "register": [],
+  "login": [],
+  "users": [
+    {
+      "email": "kukhta0school@gmail.com",
+      "password": "$2a$10$McVjlyHMFs9R1Uu5u9Z51uKNfQ1YRtd8ffB.4vRYrrJYZzHI8aqsC",
+      "id": 1
+    }
+  ]
+}

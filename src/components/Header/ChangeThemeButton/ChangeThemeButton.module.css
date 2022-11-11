@@ -1,0 +1,8 @@
+.themeButton {
+  justify-self: flex-end;
+  width: fit-content;
+  align-self: center;
+}
+.dark {
+  background-color: #f3eb7a;
+}
