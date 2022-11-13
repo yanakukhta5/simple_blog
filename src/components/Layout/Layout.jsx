@@ -3,11 +3,13 @@ import { Outlet } from "react-router-dom";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 
-const Layout = memo(function (props) {
+const Layout = memo(function () {
   return (
     <>
       <Header />
+
       <Outlet />
+
       <Footer />
     </>
   );

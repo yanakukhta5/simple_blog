@@ -2,7 +2,7 @@ import React, { memo, useMemo } from "react";
 import { useAsyncValue } from "react-router-dom";
 
 const Comments = memo(function () {
-  const comments = useMemo(() => useAsyncValue(), []);
+  const comments = useAsyncValue();
   return (
     <div>
       <h2>Comments: </h2>

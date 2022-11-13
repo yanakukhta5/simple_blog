@@ -1,16 +1,18 @@
-import React, { useState, memo, useMemo } from "react";
+import React, { useState, memo } from "react";
+import { useEffect } from "react";
 
-const SearchForm = memo(function (props) {
-  const query = props.query;
-
-  console.log(query);
-  const [search, setSearch] = useState(query ? query : "");
-  console.log(search);
+const SearchForm = memo(function ({ query, setSearchParams }) {
+  const searchQuery = query ? query : "";
+  const [search, setSearch] = useState(searchQuery);
 
   function handlerSubmit(event) {
     event.preventDefault();
-    props.setSearchParams({ posts: search });
+    setSearchParams({ posts: search });
   }
+
+  useEffect(() => {
+    setSearch(searchQuery);
+  }, [query]);
 
   return (
     <form

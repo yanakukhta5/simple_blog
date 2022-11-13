@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import { PrettyLink } from "./PrettyLink";
 import css from "./Navigation.module.css";
 
-export function Navigation(props) {
+const Navigation = memo(function () {
   return (
     <nav className={css.nav}>
       <ul className={css.ul}>
@@ -21,4 +21,6 @@ export function Navigation(props) {
       </ul>
     </nav>
   );
-}
+});
+
+export { Navigation };

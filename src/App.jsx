@@ -25,8 +25,8 @@ const App = memo(function () {
       createBrowserRouter(
         createRoutesFromElements(
           <Route path="/" element={<Layout />}>
-            <Route index element={<Main />} />
-            <Route path="profile" element={<Profile />} />
+            <Route index element={<Main key="main" />} />
+            <Route path="profile" element={<Profile key="profile" />} />
             <Route path="news" element={<News />} loader={loaderNews} />
             <Route
               path="news/:id"

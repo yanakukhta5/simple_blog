@@ -4,7 +4,7 @@ import { Comments } from "./Comments";
 import { Await, useLoaderData } from "react-router-dom";
 
 const SingleNew = memo(function () {
-  const { post, comments } = useMemo(() => useLoaderData(), []);
+  const { post, comments } = useLoaderData();
   return (
     <div style={{ padding: "20px 20px 0px 20px" }}>
       <Suspense fallback={<p>loading New</p>}>
