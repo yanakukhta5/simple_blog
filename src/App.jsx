@@ -7,6 +7,8 @@ import {
   RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
+  useRouteError,
+  isRouteErrorResponse,
 } from "react-router-dom";
 import { Profile } from "./pages/Profile";
 import { News } from "./pages/News";
@@ -17,6 +19,8 @@ import { Register } from "./pages/Login/Register";
 import { About } from "./pages/About";
 import { loaderNews } from "./pages/News/loaderNews";
 import { loaderSingleNew } from "./pages/SingleNew/loaderSingleNew";
+import { RouteErrorBoundary } from "./components/RouteErrorBoundary";
+import { CreatePost } from "./pages/CreatePost";
 
 const App = memo(function () {
   const themeContext = useTheme();
@@ -24,10 +28,15 @@ const App = memo(function () {
     () =>
       createBrowserRouter(
         createRoutesFromElements(
-          <Route path="/" element={<Layout />}>
+          <Route
+            path="/"
+            element={<Layout />}
+            errorElement={<RouteErrorBoundary />}
+          >
             <Route index element={<Main key="main" />} />
             <Route path="profile" element={<Profile key="profile" />} />
             <Route path="news" element={<News />} loader={loaderNews} />
+            <Route path="news/createPost" element={<CreatePost />} action="" />
             <Route
               path="news/:id"
               element={<SingleNew />}

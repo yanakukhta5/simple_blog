@@ -4,6 +4,7 @@ async function getPost(id) {
   const responce = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`
   );
+  if (responce.status === 404) throw new Error("Not found");
   const result = await responce.json();
   return result;
 }
