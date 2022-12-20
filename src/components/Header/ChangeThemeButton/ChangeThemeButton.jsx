@@ -1,17 +1,13 @@
 import React, { memo } from "react";
-import { useTheme } from "../../../hooks/useTheme";
+import { observer } from "mobx-react-lite";
+import { theme } from "../../../state/Theme";
 import css from "./ChangeThemeButton.module.css";
 
-const ChangeThemeButton = memo(function () {
-  const themeContext = useTheme();
+const ChangeThemeButton = observer(function () {
   return (
     <button
-      className={`${css.themeButton} ${css[themeContext.theme]}`}
-      onClick={() => {
-        themeContext.setCurrentTheme(
-          themeContext.theme === "light" ? "dark" : "light"
-        );
-      }}
+      className={`${css.themeButton} ${css[theme]}`}
+      onClick={theme.changeTheme}
     >
       Change theme
     </button>

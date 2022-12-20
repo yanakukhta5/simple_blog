@@ -1,16 +1,17 @@
-import React, { Suspense, memo } from "react";
+import React, { Suspense, useMemo } from "react";
 import { useLoaderData, useSearchParams, Await } from "react-router-dom";
 import css from "./News.module.css";
 import { SearchForm } from "./SearchForm";
 import { NewsList } from "./NewsList";
-import { useAuth } from "../../hooks/useAuth";
+import { auth } from "../../state/Auth";
 import { PrettyLink } from "../../components/Header/Navigation/PrettyLink";
+import { observer } from "mobx-react-lite";
 
-const News = memo(function () {
+const News = observer(function () {
   const { news } = useLoaderData();
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("posts");
-  const isAuth = useAuth();
+  const isAuth = useMemo(() => auth.isAuth, [auth]);
   return (
     <section className={css.news}>
       <h1 className={css.title}>NEWS</h1>

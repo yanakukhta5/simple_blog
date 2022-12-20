@@ -14,16 +14,16 @@ import { Profile } from "./pages/Profile";
 import { News } from "./pages/News";
 import { Login } from "./pages/Login";
 import { SingleNew } from "./pages/SingleNew";
-import { useTheme } from "./hooks/useTheme";
+import { theme } from "./state/Theme";
 import { Register } from "./pages/Login/Register";
 import { About } from "./pages/About";
 import { loaderNews } from "./pages/News/loaderNews";
 import { loaderSingleNew } from "./pages/SingleNew/loaderSingleNew";
 import { RouteErrorBoundary } from "./components/RouteErrorBoundary";
 import { CreatePost } from "./pages/CreatePost";
+import { observer } from "mobx-react-lite";
 
-const App = memo(function () {
-  const themeContext = useTheme();
+const App = observer(function () {
   const router = useMemo(
     () =>
       createBrowserRouter(
@@ -52,7 +52,7 @@ const App = memo(function () {
   );
   return (
     <>
-      <div className={`${css.app} ${themeContext.theme}`}>
+      <div className={`${css.app} ${theme.colorScheme}`}>
         <RouterProvider router={router} />
       </div>
     </>

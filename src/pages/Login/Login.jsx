@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { string, util, isValid } from "valid.js";
 import { Link, useMatch, useNavigate } from "react-router-dom";
 import css from "./Login.module.css";
-import { useTheme } from "../../hooks/useTheme";
+import { theme } from "../../state/Theme";
+import { auth } from "../../state/Auth";
 
 export function Login(props) {
   const isLogin = useMatch("/login");
-  const themeContext = useTheme();
-  const theme = themeContext.theme === "dark" ? css.dark : "";
+  //const theme = theme === "dark" ? css.dark : "";
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -51,6 +51,7 @@ export function Login(props) {
           alert("Вы успешно авторизованы");
           navigate("/profile");
           localStorage.setItem("isAuth", "true");
+          auth.changeAuth();
         } else alert("Вы не авторизованы");
       });
   }
