@@ -1,3 +1,4 @@
-# simple_blog
-React blog witout design 
-## react js mobx
+# simple_blog. React blog witout design 
+## react
+## js
+## mobx
